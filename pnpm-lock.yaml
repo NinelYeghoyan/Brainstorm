@@ -42,9 +42,6 @@ dependencies:
     version: 2.1.4
 
 devDependencies:
-  '@babel/eslint-parser':
-    specifier: ^7.22.5
-    version: 7.22.5(@babel/core@7.22.5)(eslint@8.42.0)
   eslint:
     specifier: ^8.42.0
     version: 8.42.0

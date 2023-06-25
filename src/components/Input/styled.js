@@ -1,43 +1,85 @@
 import styled from "styled-components";
 
-const variantStyles = {
-    primary: "#ffffff",
-    secondary: "#F1F3F5",
-    disable: "#D8D8D8",
-};
-
-const sizeStyles = {
-    small: "12px",
-    medium: "16px",
-    large: "18px",
-};
-
 export const StyledInput = styled.div`
     > input {
         width: 100%;
-        height: 35px;
 
         font-family: ${({ theme }) => theme.typography.fontFamily.roboto}, sans-serif;
-        font-size: ${(props) => sizeStyles[props.size] || sizeStyles.medium};
         font-weight: ${({ theme }) => theme.typography.weight.regular};
-        line-height: 14px;
         letter-spacing: 0.5px;
 
         border: 1px solid ${({ theme }) => theme.palette.gray400};
         border-radius: ${({ theme }) => theme.borderRadius.radius4};
-        background-color: ${(props) => variantStyles[props.variant] || variantStyles.primary};
-        color: ${({ theme }) => theme.palette.gray800};
 
         &::placeholder {
             font-family: ${({ theme }) => theme.typography.fontFamily.roboto}, sans-serif;
-            font-size: ${(props) => sizeStyles[props.size] || sizeStyles.medium};
-            line-height: 14px;
             letter-spacing: 0.5px;
-            color: ${({ theme }) => theme.palette.gray800};
         }
 
         &:focus {
             outline: none;
+        }
+
+        &.primary {
+            background-color: ${({ theme }) => theme.palette.white};
+            color: ${({ theme }) => theme.palette.gray800};
+
+            &::placeholder {
+                color: ${({ theme }) => theme.palette.gray800};
+            }
+        }
+
+        &.secondary {
+            background-color: ${({ theme }) => theme.palette.base};
+            color: ${({ theme }) => theme.palette.white};
+
+            &::placeholder {
+                color: ${({ theme }) => theme.palette.white};
+            }
+        }
+
+        &.disable {
+            pointer-events: none;
+            touch-action: none;
+            background-color: ${({ theme }) => theme.palette.secondary};
+            color: ${({ theme }) => theme.palette.gray600};
+
+            &::placeholder {
+                color: ${({ theme }) => theme.palette.gray600};
+            }
+        }
+
+        &.small {
+            height: 36px;
+            font-size: ${({ theme }) => theme.typography.fontSize.p12};
+            line-height: 14px;
+
+            &::placeholder {
+                font-size: ${({ theme }) => theme.typography.fontSize.p12};
+                line-height: 14px;
+            }
+        }
+
+        &.medium {
+            height: 38px;
+            font-size: ${({ theme }) => theme.typography.fontSize.p14};
+            line-height: 16px;
+
+            &::placeholder {
+                font-size: ${({ theme }) => theme.typography.fontSize.p14};
+                line-height: 16px;
+            }
+        }
+
+        &.large {
+            height: 40px;
+            font-size: ${({ theme }) => theme.typography.fontSize.p16};
+            line-height: 18px;
+
+            &::placeholder {
+                font-size: ${({ theme }) => theme.typography.fontSize.p16};
+                line-height: 18px;
+            }
         }
     }
 `;
