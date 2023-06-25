@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import Changer from "../../components/Changer";
 import PageHeader from "../../components/PageHeader";
-import PageLayout from "../../components/PageLayout";
 import Table from "../../components/Table";
+import PageLayout from "../../layout/PageLayout";
 import { updateGetUserById } from "../../redux/actions/types";
 import { routes } from "../../routes/routes";
 

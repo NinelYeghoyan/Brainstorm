@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
-import Aside from "../../layout/Aside";
-import Header from "../../layout/Header";
-import Message from "../Message";
+import Message from "../../components/Message";
+import Aside from "../Aside";
+import Header from "../Header";
 
 import StyledPageLayout from "./styled";
 

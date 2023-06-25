@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Form from "../../components/Form";
 import PageHeader from "../../components/PageHeader";
-import PageLayout from "../../components/PageLayout";
+import PageLayout from "../../layout/PageLayout";
 import { postUsers, showUpdateMessage } from "../../redux/actions/action";
 import { routes } from "../../routes/routes";
 
