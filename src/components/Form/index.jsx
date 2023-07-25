@@ -11,18 +11,18 @@ import StyledForm from "./styled";
 
 const Form = ({ onSubmit }) => {
     const { t } = useTranslation();
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [location, setLocation] = useState("");
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        location: "",
+    });
 
     const { item } = useSelector(({ users }) => users);
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const userData = {
-            name,
-            email,
-            location,
+            ...formData,
             photo: item && item.photo,
             disabled: item && item.disabled,
             registeredDate: new Date().toISOString(),
@@ -34,35 +34,48 @@ const Form = ({ onSubmit }) => {
 
     useEffect(() => {
         if (item) {
-            setName(item.name);
-            setEmail(item.email);
-            setLocation(item.location);
+            setFormData({
+                name: item.name,
+                email: item.email,
+                location: item.location,
+            });
         }
     }, [item]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
     return (
         <StyledForm className="BS-form mt-26 pv-52 ph-54">
             <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
-                    value={name || ""}
-                    onChange={(e) => setName(e.target.value)}
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder={t("userName")}
                     size="small"
                 />
                 <ImageUpload className="mt-16" />
                 <Input
                     type="email"
-                    value={email || ""}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder={t("email")}
                     size="small"
                     className="mt-16"
                 />
                 <Input
                     type="text"
-                    value={location || ""}
-                    onChange={(e) => setLocation(e.target.value)}
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
                     placeholder={t("location")}
                     size="small"
                     className="mt-16"
