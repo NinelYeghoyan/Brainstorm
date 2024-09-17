@@ -2,6 +2,13 @@
   "name": "brainstorm",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write src/. --config ./.prettierrc"
+  },
   "dependencies": {
     "i18next": "^22.5.1",
     "prop-types": "^15.8.1",
@@ -17,29 +24,6 @@
     "styled-reset": "^4.4.7",
     "web-vitals": "^2.1.4"
   },
-  "engines": {
-    "pnpm": "8.x",
-    "node": "16.x"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "format": "prettier --write src/. --config ./.prettierrc"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -53,5 +37,17 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "node-sass": "^9.0.0",
     "sass-loader": "^13.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
